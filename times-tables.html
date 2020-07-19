@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      * {
+        font-size: 18px;
+        color: #00fb00;
+      }
+      body {
+        margin: 0;
+      }
+      #main {
+        box-sizing: border-box;
+        width: 100vw;
+        height: 100vh;
+        background: black;
+        padding: 10px;
+        font-family: Consolas;
+      }
+
+      #main #boxes {
+        min-height: 200px;
+      }
+
+      #main #boxes .box {
+        height: 150px;
+        width: 150px;
+        display: inline-block;
+        border: 1px solid #00fb00;
+        border-radius: 5px;
+        padding: 10px;
+        margin: 20px;
+        font-size: 120px;
+        line-height: 150px;
+
+      }
+
+      #main #boxes .box .content {
+        display: inline-block;
+        width: 100%;
+        margin: 0 42px;
+        font-size: 120px;
+      }
+
+      #main #boxes .sign {
+        display: inline-block;
+        padding: 0 10px;
+        line-height: 212px;
+        vertical-align: top;
+      }
+
+      #main #buttons div {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+      }
+
+      #main #buttons div+div {
+        margin-top: 10px;
+      }
+
+      #main #buttons div button {
+        width: 80px;
+        height: 60px;
+        background: inherit;
+        border-style: outset;
+        border-color: hsl(120, 50%, 76%) hsl(120, 50%, 46%) hsl(120, 50%, 46%) hsl(120, 50%, 76%);
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <div id="boxes">
+        <div class="box"><div class="content">2</div></div>
+        <div class="sign">&times;</div>
+        <div class="box"><div class="content">2</div></div>
+        <div class="sign">=</div>
+        <div class="box"><div class="content">4</div></div>
+      </div>
+      <div id="buttons"></div>
+    </div>
+    <script>
+      var combinations = [];
+      var answers = [];
+      for(var i = 2; i <= 13; i++) {
+        for(var j = 2; j <= 13; j++) {
+          combinations.push([i, j]);
+        }
+      }
+      shuffle(combinations);
+      for(var i = 1; i <= 10; i++) {
+        var r = document.createElement('div')
+        document.getElementById('buttons').appendChild(r);
+        for(var j = 1; j <= 20; j++) {
+          var button = document.createElement('button');
+          button.innerHTML = ((i - 1) * 20) + j;
+          r.appendChild(button);
+        }
+      }
+
+      // functions
+      // Shuffle using Fisher-Yates algorithm
+      function shuffle (arr) {
+        for (let i = arr.length - 1; i > 0; i--) {
+          let j = Math.floor(Math.random() * (i + 1));
+          [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+      }
+    </script>
+  </body>
+</html>

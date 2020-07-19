@@ -78,34 +78,64 @@
   <body>
     <div id="main">
       <div id="boxes">
-        <div class="box"><div class="content">2</div></div>
+        <div class="box"><div class="content"></div></div>
         <div class="sign">&times;</div>
-        <div class="box"><div class="content">2</div></div>
+        <div class="box"><div class="content"></div></div>
         <div class="sign">=</div>
-        <div class="box"><div class="content">4</div></div>
+        <div class="box"><div class="content"></div></div>
       </div>
       <div id="buttons"></div>
     </div>
     <script>
+      var current = 0;
       var combinations = [];
       var answers = [];
+      var startTime = Date.now()
+      var endTime = null;
       for(var i = 2; i <= 13; i++) {
         for(var j = 2; j <= 13; j++) {
           combinations.push([i, j]);
         }
       }
       shuffle(combinations);
-      for(var i = 1; i <= 10; i++) {
+      for(var i = 1; i <= 17; i++) {
         var r = document.createElement('div')
         document.getElementById('buttons').appendChild(r);
-        for(var j = 1; j <= 20; j++) {
+        for(var j = 1; j <= 10; j++) {
           var button = document.createElement('button');
-          button.innerHTML = ((i - 1) * 20) + j;
+          button.innerHTML = ((i - 1) * 10) + j;
+          button.onclick = function (e) {
+            var boxes = document.querySelectorAll('.box .content');
+            boxes[2].innerHTML = e.target.innerHTML;
+            answers.push([parseInt(boxes[0].innerHTML), parseInt(boxes[1].innerHTML), parseInt(e.target.innerHTML)])
+            if(answers.length < combinations.length) {
+              current++;
+              setTimeout(function () {
+                run(current)
+              }, 500)
+            } else {
+              finish()
+            }
+          }
           r.appendChild(button);
         }
       }
 
+      run(current);
+
       // functions
+      function finish () {
+        endTime = Date.now()
+        alert(`Done! You took ${((endTime - startTime)/1000).toFixed(1)} seconds.`)
+      }
+
+      function run (index) {
+        var boxes = document.querySelectorAll('.box .content');
+        boxes[0].innerHTML = combinations[index][0];
+        boxes[1].innerHTML = combinations[index][1];
+        boxes[2].innerHTML = "";
+      }
+
       // Shuffle using Fisher-Yates algorithm
       function shuffle (arr) {
         for (let i = arr.length - 1; i > 0; i--) {

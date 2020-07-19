@@ -20,6 +20,8 @@
 
       #main #boxes {
         min-height: 200px;
+        /* adding all elements gives 696px; there's a mystery gap of 60px between and around the boxes and signs also */
+        padding: 0 calc((100vw - 756px)/2);
       }
 
       #main #boxes .box {

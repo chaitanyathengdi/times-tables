@@ -20,8 +20,8 @@
 
       #main #boxes {
         min-height: 200px;
-        /* adding all elements gives 696px; there's a mystery gap of 60px between and around the boxes and signs also */
-        padding: 0 calc((100vw - 756px)/2);
+        /* adding all elements gives 746px; there's a mystery gap of 80px between and around the boxes and signs also */
+        padding: 0 calc((100vw - 826px)/2);
       }
 
       #main #boxes .box {
@@ -37,10 +37,14 @@
 
       }
 
+      #main #boxes div:nth-of-type(5) {
+        width: 200px;
+      }
+
       #main #boxes .box .content {
         display: inline-block;
         width: 100%;
-        margin: 0 42px;
+        text-align: center;
         font-size: 120px;
       }
 
@@ -62,8 +66,8 @@
       }
 
       #main #buttons div button {
-        width: 80px;
-        height: 60px;
+        width: 180px;
+        height: 32px;
         background: inherit;
         border-style: outset;
         border-color: hsl(120, 50%, 76%) hsl(120, 50%, 46%) hsl(120, 50%, 46%) hsl(120, 50%, 76%);

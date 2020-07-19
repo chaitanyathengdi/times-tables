@@ -105,6 +105,7 @@
       var current = 0;
       var combinations = [];
       var answers = [];
+      var wrongAnswers = [];
       var startTime = Date.now()
       var endTime = null;
       for(var i = 2; i <= 13; i++) {
@@ -141,7 +142,19 @@
       // functions
       function finish () {
         endTime = Date.now()
-        alert(`Done! You took ${((endTime - startTime)/1000).toFixed(1)} seconds.`)
+        var alertString = `Done! You took ${((endTime - startTime)/1000).toFixed(1)} seconds.`;
+        answers.forEach(function (answer) {
+          if((answer[0] * answer[1]) !== answer[2]) {
+            wrongAnswers.push(answer);
+          }
+        })
+        if(wrongAnswers.length > 0) {
+          alertString = alertString + `\nHowever, you got ${wrongAnswers.length} answers wrong.\nTry again!\nCheck the log for wrong answers.`;
+          var wrongAnswerStrings = wrongAnswers.map(answer => `${answer[0]} x ${answer[1]} = ${answer[2]}`)
+          console.log('Wrong answers:')
+          wrongAnswerStrings.forEach(answer => {console.log(answer)})
+        }
+        alert(alertString)
       }
 
       function run (index) {

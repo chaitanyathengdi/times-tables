@@ -88,6 +88,80 @@
       #main #buttons div button:focus {
         outline: none;
       }
+
+      @media (max-height: 768px) and (max-width: 1366px) {
+        #main #boxes {
+          min-height: 140px;
+          padding: 0 calc((100vw - 806px)/2);
+        }
+
+        #main #boxes .box {
+          height: 100px;
+          width: 100px;
+          font-size: 84px;
+          line-height: 100px;
+        }
+
+        #main #boxes div:nth-of-type(5) {
+          width: 150px;
+        }
+
+        #main #boxes .box .content {
+          font-size: 84px;
+        }
+
+        #main #boxes .sign {
+          padding: 0 10px;
+          line-height: 162px;
+        }
+
+        #main #buttons div+div {
+          margin-top: 8px;
+        }
+
+        #main #buttons div button {
+          width: 125px;
+          height: 25px;
+          font-size: 14px;
+        }        
+      }
+
+      @media (max-height: 768px) and (max-width: 1024px) {
+        #main #boxes {
+          min-height: 140px;
+          padding: 0 calc((100vw - 656px)/2);
+        }
+
+        #main #boxes .box {
+          height: 100px;
+          width: 100px;
+          font-size: 84px;
+          line-height: 100px;
+        }
+
+        #main #boxes div:nth-of-type(5) {
+          width: 150px;
+        }
+
+        #main #boxes .box .content {
+          font-size: 84px;
+        }
+
+        #main #boxes .sign {
+          padding: 0 10px;
+          line-height: 162px;
+        }
+
+        #main #buttons div+div {
+          margin-top: 8px;
+        }
+
+        #main #buttons div button {
+          width: 94px;
+          height: 25px;
+          font-size: 14px;
+        }        
+      }
     </style>
   </head>
   <body>

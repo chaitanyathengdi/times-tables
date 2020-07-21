@@ -123,7 +123,7 @@
           width: 125px;
           height: 25px;
           font-size: 14px;
-        }        
+        }
       }
 
       @media (max-height: 768px) and (max-width: 1024px) {
@@ -160,7 +160,7 @@
           width: 94px;
           height: 25px;
           font-size: 14px;
-        }        
+        }
       }
     </style>
   </head>
@@ -225,7 +225,7 @@
         })
         if(wrongAnswers.length > 0) {
           alertString = alertString + `\nHowever, you got ${wrongAnswers.length} answers wrong.\nTry again!\nCheck the log for wrong answers.`;
-          var wrongAnswerStrings = wrongAnswers.map(answer => `${answer[0]} x ${answer[1]} = ${answer[2]}`)
+          var wrongAnswerStrings = wrongAnswers.map(answer => `${answer[0]} x ${answer[1]} = ${answer[2]} (${answer[0] * answer[1]})`)
           console.log('Wrong answers:')
           wrongAnswerStrings.forEach(answer => {console.log(answer)})
         }

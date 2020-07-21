@@ -216,7 +216,8 @@
       // functions
       function finish () {
         endTime = Date.now()
-        var alertString = `Done! You took ${((endTime - startTime)/1000).toFixed(1)} seconds.`;
+        var totalTime = (endTime - startTime)/1000;
+        var alertString = `Done! You took ${parseInt(totalTime/60)} minutes and ${parseInt(totalTime%60)} seconds.`;
         answers.forEach(function (answer) {
           if((answer[0] * answer[1]) !== answer[2]) {
             wrongAnswers.push(answer);
